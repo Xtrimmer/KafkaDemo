@@ -12,7 +12,7 @@ class KafkaListener {
     private val log = LoggerFactory.getLogger(this::class.java)
 
     @Topic("foo-stream")
-    fun receive(@KafkaKey key: UUID, message: String) {
+    fun receive(@KafkaKey key: UUID, message: Event) {
         log.info("Message '$message' received with key '$key'")
     }
 }

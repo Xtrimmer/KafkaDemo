@@ -9,5 +9,5 @@ import java.util.*
 interface KafkaClient {
 
     @Topic("foo-stream")
-    fun send(@KafkaKey key: UUID, message: String)
+    fun send(@KafkaKey key: UUID, message: Event)
 }

@@ -12,10 +12,10 @@ class Controller(private val kafkaClient: KafkaClient) {
     }
 
     @Get("/test")
-    fun test() : String {
+    fun test(): String {
         val message = "Test Message ${++counter}"
         val key = UUID.randomUUID()
-        kafkaClient.send(key, message)
+        kafkaClient.send(key, Event(message, counter))
 
         return "Message '$message' published with key '$key'"
     }
